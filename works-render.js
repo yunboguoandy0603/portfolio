@@ -88,8 +88,11 @@
       if (item.id === 'babel' && window.renderBabel) { return window.renderBabel(item); }
       if (item.id === 'hyperglimpse' && window.renderHyperGlimpse) { return window.renderHyperGlimpse(item); }
       if (item.id === 'primal' && window.renderPrimal) { return window.renderPrimal(item); }      if (item.id === 'yinyang' && window.renderYinYang) { return window.renderYinYang(item); }
+      if (item.id === 'paranoid' && window.renderParanoid) { return window.renderParanoid(item); }
       if (item.id === 'rain' && window.renderRain) { return window.renderRain(item); }
       if (item.id === 'deeptime' && window.renderDeepTime) { return window.renderDeepTime(item); }
+      if (item.id === 'dragongate' && window.renderDragonGate) { return window.renderDragonGate(item); }
+      if (item.id === 'lightofmylife' && window.renderLightOfMyLife) { return window.renderLightOfMyLife(item); }
       var art = el('article', 'case' + (item.kind === 'research' ? ' is-research' : ''));
       art.id = 'case-' + key + '-' + item.id;
       art.setAttribute('data-screen-label', item.title);

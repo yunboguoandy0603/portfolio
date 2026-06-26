@@ -14,25 +14,25 @@
   // Video order follows the links provided, mapped to the PDF's scene order.
   var SCENES = [
     /* Paste each YouTube link (full URL or just the 11-char video ID) into yt: '' below. */
-    { id: 'YT1', yt: '',
+    { id: 'YT1', yt: 'sp4zfaMjdqE',
       n: '01',
       t_en: 'The passageway of an old building', t_zh: '老楼的过道',
       scent_en: 'Damp concrete · aged wood', scent_zh: '潮湿的混凝土 · 旧木',
       b_en: 'The dim stairwell I walked through every day as a child — paint flaking, light falling in slats. The smell of damp concrete still pulls the whole corridor back into being.',
       b_zh: '童年里每天穿行的昏暗楼道——墙皮剥落，光从缝隙里斜切进来。潮湿混凝土的气味，至今仍能把整条走廊重新唤回。' },
-    { id: 'YT2', yt: '',
+    { id: 'YT2', yt: '6sAC3RXkTbM',
       n: '02',
       t_en: 'Learning to swim as a child', t_zh: '儿时学游泳',
       scent_en: 'Pool chlorine', scent_zh: '泳池的氯',
       b_en: 'Summer mornings at an outdoor pool, the water never quite warm, wrapped in a towel between lessons. The sharp note of chlorine is the fastest door back to that cold, bright water.',
       b_zh: '夏天清晨的露天泳池，水总也不暖，课间裹着毛巾发抖。氯水那股刺鼻的味道，是回到那片冰凉明亮水面最快的一道门。' },
-    { id: 'YT3', yt: '',
+    { id: 'YT3', yt: 'UGTNjjVl5-Q',
       n: '03',
       t_en: 'Kindergarten', t_zh: '幼儿园',
       scent_en: 'Warm milk · crayons', scent_zh: '温牛奶 · 蜡笔',
       b_en: 'A cosy nursery, a teacher\'s gentle voice, afternoon light through the window. Warm milk and crayon wax hold the whole soft, half-remembered room together.',
       b_zh: '温暖的托班、老师轻柔的声音、午后透过窗的光。温牛奶与蜡笔的气味，把那间柔软而半被记起的房间整个托住。' },
-    { id: 'YT4', yt: '',
+    { id: 'YT4', yt: 'KSHn8HVJXy0',
       n: '04',
       t_en: 'Coming out in high school', t_zh: '高中时的出柜',
       scent_en: 'Crisp autumn wind', scent_zh: '清冽的秋风',
@@ -41,7 +41,7 @@
   ];
 
   // full-bleed feature video (placed under section 02)
-  var FEATURE = { n: 'main', yt: '', t_en: 'Deep Time — film' };
+  var FEATURE = { n: 'main', yt: 'PnIC2s8quGA', t_en: 'Deep Time — film' };
 
   function injectCSS() {
     if (document.getElementById('dt-css')) return;

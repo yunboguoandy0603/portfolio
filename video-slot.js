@@ -15,7 +15,9 @@
    Size comes from ordinary CSS (width/height on the element or its parent).
    ========================================================================== */
 (() => {
-  const STATE_FILE = '.video-slots.state.json';
+  // No leading dot on purpose — see images.state.json note in image-slot.js.
+  // Dotfiles get dropped by GitHub Pages / exports, which lost every video.
+  const STATE_FILE = 'videos.state.json';
 
   // ── shared sidecar store (string values) ─────────────────────────────────
   const subs = new Set();

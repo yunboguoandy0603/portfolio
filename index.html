@@ -122,13 +122,13 @@
   .wrap{max-width:var(--maxw);margin:0 auto;width:100%}
 
   /* per-page palette binding */
-  .page[data-pal="1"]{--paper:var(--s1);--ink:var(--s1f)}
-  .page[data-pal="2"]{--paper:var(--s2);--ink:var(--s2f)}
-  .page[data-pal="3"]{--paper:var(--s3);--ink:var(--s3f)}
+  .page[data-pal="1"]{--paper:#F6E13C;--ink:#1A1622}
+  .page[data-pal="2"]{--paper:#F7A8DA;--ink:#3B22E0}
+  .page[data-pal="3"]{--paper:#F6E13C;--ink:#1A1622}
   .page[data-pal="4"]{--paper:var(--s4);--ink:var(--s4f)}
   .page[data-pal="5"]{--paper:var(--s5);--ink:var(--s5f)}
-  .page[data-pal="6"]{--paper:var(--s6);--ink:var(--s6f)}
-  .page[data-pal="7"]{--paper:var(--s7);--ink:var(--s7f)}
+  .page[data-pal="6"]{--paper:#e6f41f;--ink:#3B22E0}
+  .page[data-pal="7"]{--paper:#2A6FDB;--ink:#FFE45E}
   /* mint & teal pages: green accent would blend — give them a contrasting pop */
   .page[data-pal="3"]{--accent:#FF3D8A}
   .page[data-pal="7"]{--accent:#FF3D8A}
@@ -349,10 +349,10 @@
     transition:transform .9s cubic-bezier(.83,.01,.18,1),opacity .25s;will-change:transform;z-index:8}
   html.fp .flame-mark{position:fixed}
   .flame-svg{width:100%;height:auto;display:block;overflow:visible}
-  .flame-body{fill:var(--s2)}
-  .flame-stitch{fill:none;stroke:var(--s1);stroke-width:2.5;stroke-dasharray:1.5 9;stroke-linecap:round}
+  .flame-body{fill:#F7A8DA}
+  .flame-stitch{fill:none;stroke:#F6E13C;stroke-width:2.5;stroke-dasharray:1.5 9;stroke-linecap:round}
   .flame-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-family:var(--logo);color:var(--s1);pointer-events:none;transition:opacity .3s}
+    font-family:var(--logo);color:#F6E13C;pointer-events:none;transition:opacity .3s}
   .flame-text>span{display:flex;flex-direction:column;align-items:center;line-height:.84;transform:rotate(-4deg)}
   .flame-text .ft1{font-size:clamp(15px,4vmin,32px);opacity:.95;align-self:flex-start;margin-left:12%;
     margin-bottom:.04em;transform:rotate(-3deg);white-space:nowrap}
@@ -543,7 +543,7 @@
 <style id="panels-style">
   /* ===================== WORKS — section grid ===================== */
   #works .page-pad{justify-content:flex-start;padding-top:clamp(74px,9.5vh,116px);padding-bottom:clamp(40px,7vh,90px)}
-  #works{--paper:#F6F5F2;--ink:#1A1A1F;--accent:#1A1A1F;background:#F6F5F2}
+  #works{--paper:#F6F5F2;--ink:#3B22E0;--accent:#1A1A1F;background:#F6F5F2}
   #works .works-index-wrap{display:flex;flex-direction:column;min-height:0}
   .works-head{margin-bottom:clamp(18px,3vh,40px);flex:none}
   .works-title{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.9;
@@ -713,6 +713,10 @@
     transform:translateY(-8px);box-shadow:0 28px 50px -22px rgba(20,18,8,.44);z-index:6}
   .about-cards .apanel:hover .ahandle,.about-cards .apanel.open .ahandle{opacity:1}
   .about-cards .apanel.open{border-style:solid}
+  /* Skillsets label: "Tap to view" when closed, "Tap to back" when open */
+  .card-skill .alabel .lbl-back{display:none}
+  .card-skill.open .alabel .lbl-view{display:none}
+  .card-skill.open .alabel .lbl-back{display:inline}
 
   /* SKILLSETS body */
   .skill-list{display:flex;flex-direction:column}
@@ -790,6 +794,20 @@
     font-family:var(--mono);font-size:clamp(11px,1.1vw,13px);letter-spacing:.16em;text-transform:uppercase;
     color:var(--ink);padding:8px 4px;margin-bottom:clamp(16px,2.6vh,30px);transition:gap .3s,opacity .25s;opacity:.82}
   .case-back .case-back-cat{font-weight:700}
+  /* keep the project Back control reachable at any scroll depth — a quiet
+     frosted chip that sits lightly over any case theme, not a bright slab */
+  #works.case-open .case-back{position:sticky;top:clamp(50px,7vh,72px);z-index:40;
+    opacity:.9;gap:9px;padding:7px 15px 7px 8px;margin-bottom:clamp(14px,2.2vh,26px);
+    font-size:clamp(10px,.95vw,11.5px);letter-spacing:.14em;border-radius:999px;color:var(--ink);
+    background:color-mix(in oklab,#FFFFFF,transparent 40%);
+    -webkit-backdrop-filter:blur(12px) saturate(1.3);backdrop-filter:blur(12px) saturate(1.3);
+    border:1px solid color-mix(in oklab,var(--ink),transparent 85%);
+    box-shadow:0 6px 16px -12px rgba(20,18,8,.4)}
+  #works.case-open .case-back .ar{display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;background:color-mix(in oklab,var(--ink),transparent 88%);
+    font-size:.95em;transition:transform .3s,background .2s}
+  #works.case-open .case-back:hover{opacity:1;gap:13px;background:color-mix(in oklab,#FFFFFF,transparent 12%)}
+  #works.case-open .case-back:hover .ar{background:color-mix(in oklab,var(--ink),transparent 78%)}
 
   .detail-folder{position:relative;background:var(--paper);color:var(--ink);
     padding:clamp(22px,3vw,42px) clamp(22px,3.4vw,54px) clamp(28px,4vw,58px);
@@ -1141,7 +1159,7 @@
                   <article class="apanel card-skill" data-card="skill" tabindex="0">
                     <span class="ahandle tl"></span><span class="ahandle tr"></span><span class="ahandle bl"></span><span class="ahandle br"></span>
                     <div class="card-head">
-                      <div class="alabel"><span class="en">Skillsets</span><span class="zh">技能</span><span class="r"><span class="en">Tap to view</span><span class="zh">点击展开</span></span></div>
+                      <div class="alabel"><span class="en">Skillsets</span><span class="zh">技能</span><span class="r"><span class="lbl-view"><span class="en">Tap to view</span><span class="zh">点击展开</span></span><span class="lbl-back"><span class="en">Tap to back</span><span class="zh">点击收起</span></span></span></div>
                       <h4 class="card-title"><span class="en">Skillsets</span><span class="zh">技能</span></h4>
                     </div>
                     <div class="card-body">
@@ -1730,7 +1748,11 @@
 (function(){
   var cards=[].slice.call(document.querySelectorAll('.about-cards .apanel'));
   if(!cards.length) return;
-  function open(card){ cards.forEach(function(c){ c.classList.toggle('open', c===card); }); }
+  function open(card){
+    var isOpen=card.classList.contains('open');
+    cards.forEach(function(c){ c.classList.remove('open'); });
+    if(!isOpen) card.classList.add('open');
+  }
   cards.forEach(function(c){
     c.addEventListener('click',function(){ open(c); });
     c.addEventListener('keydown',function(e){
@@ -1748,6 +1770,9 @@
 <script src="yinyang-page.js"></script>
 <script src="rain-page.js"></script>
 <script src="deeptime-page.js"></script>
+<script src="dragongate-page.js"></script>
+<script src="lightofmylife-page.js"></script>
+<script src="paranoid-page.js"></script>
 <script src="works-render.js"></script>
 </body>
 </html>

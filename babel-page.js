@@ -214,6 +214,7 @@
         '<span class="bb-reflect-label">' + node('Reflection', '反思') + '</span>' +
         '<blockquote class="bb-reflect"><p class="en">The perfect close to my undergrad \u2014 and proof that VR is a serious medium for philosophical storytelling. We can use digital tools not to escape reality but to reflect on it; this shaped my focus on immersive media and the alienation we live inside.</p>' +
         '<p class="zh">为本科收尾的最佳方式，也证明了 VR 是哲学叙事的严肃媒介。数字工具不该只是逃离现实，而能让我们反思现实——这塑造了我对沉浸媒介与"异化"的研究焦点。</p></blockquote>' +
+        '<a class="bb-link bb-reflect-pdf" href="' + A + 'BabelReflection.pdf" target="_blank" rel="noopener"><span class="en">Read the full reflection \u2014 PDF</span><span class="zh">阅读完整反思 —— PDF</span> <span class="bb-link-arr">\u2197</span></a>' +
       '</section>' +
 
       /* ---------------- FOOTER ---------------- */
@@ -443,6 +444,7 @@
 '.bb-reflect{margin:0 auto;max-width:64ch}',
 '.bb-reflect p{font-size:clamp(18px,2.2vw,30px);line-height:1.5;color:var(--bb-ink);font-weight:300;margin:0;text-wrap:pretty}',
 '.lang-zh .bb-reflect p{line-height:1.75;font-weight:400}',
+'.bb-reflect-pdf{margin-top:clamp(26px,3.6vw,42px)}',
 
 /* footer */
 '.bb-foot{position:relative;text-align:center;padding:clamp(60px,9vw,120px) 24px clamp(70px,10vw,120px);border-top:1px solid var(--bb-line);overflow:hidden}',

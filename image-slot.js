@@ -49,7 +49,12 @@
 /* END USAGE */
 
 (() => {
-  const STATE_FILE = '.image-slots.state.json';
+  // NOTE: filename intentionally has NO leading dot. GitHub Pages (Jekyll)
+  // and many zip/export tools silently drop dotfiles, which made every
+  // dropped cover vanish on the published site. A normal *.state.json name
+  // is published + served normally. (Suffix still matches the host's
+  // writeFile allowlist, so dropping new images still persists.)
+  const STATE_FILE = 'images.state.json';
   // 2× a ~600px slot in a 1920-wide deck — retina-sharp without making the
   // sidecar enormous. A 1200px WebP at q=0.85 is ~150-300KB.
   const MAX_DIM = 1200;

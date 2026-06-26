@@ -128,9 +128,9 @@
         '</div>' +
 
         '<div class="pr-personas">' +
-          '<figure class="pr-persona">' + slot('persona-zhang', 'Persona portrait', '\u4eba\u7269\u8096\u50cf', '4 / 5') +
+          '<figure class="pr-persona">' +
             '<figcaption><b>ZHANG Chao \u00b7 34</b><p><span class="en">&ldquo;I&rsquo;ve always wanted to try archery, but traditional equipment is hard to maneuver.&rdquo;</span><span class="zh">\u201c\u6211\u4e00\u76f4\u60f3\u8bd5\u8bd5\u5c04\u7bad\uff0c\u4f46\u4f20\u7edf\u88c5\u5907\u5f88\u96be\u64cd\u4f5c\u3002\u201d</span></p></figcaption></figure>' +
-          '<figure class="pr-persona">' + slot('persona-xiao', 'Persona portrait', '\u4eba\u7269\u8096\u50cf', '4 / 5') +
+          '<figure class="pr-persona">' +
             '<figcaption><b>XIAO Li \u00b7 37</b><p><span class="en">&ldquo;After my injury I lost targeted exercise. I fear moving wrong and getting hurt again.&rdquo;</span><span class="zh">\u201c\u53d7\u4f24\u540e\u6211\u5931\u53bb\u4e86\u6709\u9488\u5bf9\u6027\u7684\u953b\u70bc\uff0c\u603b\u62c5\u5fc3\u52a8\u9519\u53c8\u53d7\u4f24\u3002\u201d</span></p></figcaption></figure>' +
           '<div class="pr-persona-stats">' +
             '<div class="pr-pstat"><b>76%</b><p><span class="en">of upper-limb amputees report phantom-limb pain</span><span class="zh">\u4e0a\u80a2\u622a\u80a2\u8005\u62a5\u544a\u5e7b\u80a2\u75db</span></p></div>' +
@@ -163,10 +163,6 @@
             '<button class="pr-scn-tab" data-scn="1" role="tab"><span class="en">Tundra Steppe</span><span class="zh">\u51bb\u539f\u8352\u539f</span></button>' +
           '</div>' +
           '<div class="pr-scn-body">' +
-            '<div class="pr-scn-media">' +
-              slot('scene-forest', 'Forest scene render', '\u68ee\u6797\u573a\u666f\u6e32\u67d3', '16 / 9') +
-              slot('scene-tundra', 'Tundra scene render', '\u51bb\u539f\u573a\u666f\u6e32\u67d3', '16 / 9') +
-            '</div>' +
             '<div class="pr-scn-text">' +
               '<div class="pr-scn-pane is-on" data-pane="0"><p><span class="en">Towering trees, gurgling streams and hidden caves build a vibrant rainforest. Players face complex terrain and changing weather \u2014 the pursuit of prey becomes a test of exploration, endurance and strategy.</span><span class="zh">\u53c2\u5929\u7684\u6811\u6728\u3001\u6f7a\u6f7a\u6e2a\u6d41\u4e0e\u9690\u85cf\u7684\u6d1e\u7a74\uff0c\u6784\u6210\u4e00\u7247\u751f\u673a\u52c3\u52c3\u7684\u96e8\u6797\u3002\u73a9\u5bb6\u9700\u9762\u5bf9\u590d\u6742\u5730\u5f62\u4e0e\u591a\u53d8\u5929\u6c14\u2014\u2014\u5bf9\u730e\u7269\u7684\u8ffd\u9010\uff0c\u6210\u4e3a\u63a2\u7d22\u3001\u8010\u529b\u4e0e\u7b56\u7565\u7684\u8003\u9a8c\u3002</span></p></div>' +
               '<div class="pr-scn-pane" data-pane="1"><p><span class="en">Vast plains and low shrubs are a beautiful contrast; the breeze stirs waves of grass. But the open terrain makes the contest between hunter and prey more tense \u2014 every step may be the key to success or failure.</span><span class="zh">\u8fbd\u9614\u7684\u5e73\u539f\u4e0e\u4f4e\u77ee\u7684\u704c\u6728\u5f62\u6210\u7f8e\u4e3d\u7684\u53cd\u5dee\uff0c\u5fae\u98ce\u63c0\u8d77\u8349\u6d6a\u3002\u4f46\u5f00\u9614\u7684\u5730\u5f62\u4e5f\u8ba9\u730e\u4eba\u4e0e\u730e\u7269\u7684\u8f83\u91cf\u66f4\u52a0\u7d27\u5f20\u2014\u2014\u6bcf\u4e00\u6b65\u90fd\u53ef\u80fd\u662f\u6210\u8d25\u7684\u5173\u952e\u3002</span></p></div>' +
@@ -257,12 +253,6 @@
           '<img src="' + A + 'render-bear.png" alt="Primal Hunting render — a bear in a misty mountain meadow" />' +
           '<figcaption><span class="en">High-quality rendering and physics: arrow flight, target reaction and object collision are all simulated, and light, shadow and environment interactions make the scene vivid and immersive.</span><span class="zh">\u9ad8\u8d28\u91cf\u6e32\u67d3\u4e0e\u7269\u7406\uff1a\u7bad\u7684\u98de\u884c\u3001\u76ee\u6807\u53cd\u5e94\u4e0e\u7269\u4f53\u78b0\u649e\u5747\u88ab\u771f\u5b9e\u6a21\u62df\uff0c\u5149\u5f71\u4e0e\u73af\u5883\u4ea4\u4e92\u8ba9\u573a\u666f\u751f\u52a8\u800c\u6c89\u6d78\u3002</span></figcaption>' +
         '</figure>' +
-        '<div class="pr-gallery">' +
-          slot('render-1', 'Archery test', '\u5c04\u7bad\u6d4b\u8bd5', '16 / 10') +
-          slot('render-2', 'AI random move', 'AI \u968f\u673a\u79fb\u52a8', '16 / 10') +
-          slot('render-3', 'Physical effects', '\u7269\u7406\u6548\u679c', '16 / 10') +
-          slot('render-4', 'High-quality render', '\u9ad8\u8d28\u6e32\u67d3', '16 / 10') +
-        '</div>' +
         '<div class="pr-reflect">' +
           '<span class="pr-reflect-label"><span class="en">Reflection</span><span class="zh">\u53cd\u601d</span></span>' +
           '<p><span class="en">My first time wiring biological hardware to a digital world. It opened my eyes to accessibility in HCI \u2014 proof that immersive tech can serve marginalized bodies \u2014 and led directly into my interest in bio-responsive, accessible design.</span><span class="zh">\u7b2c\u4e00\u6b21\u628a\u751f\u7269\u786c\u4ef6\u63a5\u5165\u6570\u5b57\u4e16\u754c\u3002\u5b83\u8ba9\u6211\u770b\u89c1 HCI \u4e2d\u7684\u201c\u53ef\u8fbe\u6027\u201d\u2014\u2014\u6c89\u6d78\u6280\u672f\u53ef\u4ee5\u670d\u52a1\u88ab\u5ffd\u89c6\u7684\u8eab\u4f53\u2014\u2014\u4e5f\u76f4\u63a5\u901a\u5411\u6211\u5bf9\u751f\u7269\u54cd\u5e94\u4e0e\u65e0\u969c\u788d\u8bbe\u8ba1\u7684\u5174\u8da3\u3002</span></p>' +
@@ -632,11 +622,11 @@
 '.pr-scn-tab:last-child{border-right:0}',
 '.pr-scn-tab.is-on{color:#06201A;background:var(--pr-mint)}',
 '.pr-scn-tab:not(.is-on):hover{color:var(--pr-mint)}',
-'.pr-scn-body{display:grid;grid-template-columns:1.5fr 1fr;gap:0}',
+'.pr-scn-body{display:block}',
 '.pr-scn-media{position:relative;min-height:0}',
 '.pr-scn-media .pr-slot{position:absolute;inset:0;border:0;opacity:0;transition:opacity .5s;pointer-events:none}',
 '.pr-scn-media .pr-slot.is-on{opacity:1;position:relative;pointer-events:auto}',
-'.pr-scn-text{padding:clamp(22px,3vw,40px);display:flex;align-items:center;border-left:1px solid var(--pr-line)}',
+'.pr-scn-text{padding:clamp(22px,3vw,40px) 0 0}',
 '.pr-scn-pane{display:none}.pr-scn-pane.is-on{display:block}',
 '.pr-scn-pane p{font-family:var(--serif);font-size:clamp(15px,1.5vw,20px);line-height:1.65;color:var(--pr-ink);text-wrap:pretty}',
 '.lang-zh .pr-scn-pane p{font-family:var(--cjk);line-height:1.9}',
