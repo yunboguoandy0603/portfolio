@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="lang-en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shattered Jade 碎玉 — Yunbo Guo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{--sans:'Space Grotesk','Noto Sans SC',system-ui,sans-serif;--mono:'Space Mono','SFMono-Regular',monospace;--cjk:'Noto Sans SC',sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0A1418;color:#EDE6D3}
+.lang-en .zh{display:none}.lang-zh .en{display:none}
+.sj-bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px clamp(18px,3vw,40px);font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(180deg,rgba(10,20,24,.85),rgba(10,20,24,0));pointer-events:none}
+.sj-bar a,.sj-bar button{pointer-events:auto;color:#E9D9A7;text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;padding:6px 0}
+.sj-bar a:hover{color:#D9B04A}
+.sj-lang button{opacity:.5;padding:6px 8px}.sj-lang button.on{opacity:1;border-bottom:1.5px solid #C2352B}
+.lang-zh .sj-bar{font-family:var(--cjk);letter-spacing:.06em}
+.host{padding:clamp(28px,4vw,58px) clamp(22px,3.4vw,54px)}
+</style>
+</head>
+<body>
+<div class="sj-bar"><a href="index.html"><span class="en">← Yunbo Guo · Works</span><span class="zh">← 郭昀波 · 作品</span></a><div class="sj-lang" role="group" aria-label="Language"><button data-lang="en" class="on">EN</button><button data-lang="zh">中</button></div></div>
+<main class="host" id="host"></main>
+<script src="shatteredjade-page.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.classList.toggle('lang-en',l==='en');root.classList.toggle('lang-zh',l==='zh');root.setAttribute('lang',l==='en'?'en':'zh-CN');document.querySelectorAll('.sj-lang button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===l);});try{localStorage.setItem('pf-lang',l);}catch(e){}}
+  var saved='en';try{saved=localStorage.getItem('pf-lang')||'en';}catch(e){}
+  setLang(saved);
+  document.querySelectorAll('.sj-lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
+  document.getElementById('host').appendChild(window.renderShatteredJade({}));
+})();
+</script>
+</body>
+</html>

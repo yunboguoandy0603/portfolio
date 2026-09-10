@@ -35,6 +35,11 @@
     var caseHost = caseView.querySelector('.case-host');
     var caseBack = caseView.querySelector('.case-back');
     var caseBackCat = caseView.querySelector('.case-back-cat');
+    var crumbWorks = caseView.querySelector('.crumb-works');
+    var crumbCat = caseView.querySelector('.crumb-cat');
+    var crumbCur = caseView.querySelector('.crumb-cur');
+    var caseClose = caseView.querySelector('.case-close');
+    var caseEnd = caseView.querySelector('.case-end');
     var folderCS = { paper: '', ink: '' };
     var hoverable = !(window.matchMedia && window.matchMedia('(hover:none)').matches);
 
@@ -83,6 +88,7 @@
 
     /* ---------- case study ---------- */
     function buildCase(key, item, i, total) {
+      if (item.id === 'shatteredjade' && window.renderShatteredJade) { return window.renderShatteredJade(item); }
       if (item.id === 'onemorestep' && window.renderOneMoreStep) { return window.renderOneMoreStep(item); }
       if (item.id === 'space' && window.renderSpace) { return window.renderSpace(item); }
       if (item.id === 'babel' && window.renderBabel) { return window.renderBabel(item); }
@@ -223,7 +229,7 @@
     }
 
     /* ---------- views ---------- */
-    function openDetail(catEl) {
+    function openDetail(catEl, noPush) {
       var key = catKeyOf(catEl);
       var c = D.cats[key]; if (!c) return;
       dNum.textContent = c.num + ' \u00b7 ' + c.items.length;
@@ -241,19 +247,72 @@
       caseView.setAttribute('aria-hidden', 'true');
       works.scrollTop = 0;
       setActive(null);
+      if (!noPush) pushState({ w: 'toc', k: key, d: 1 });
     }
-    function openCase(key, item, i, total) {
+    function openCase(key, item, i, total, noPush) {
       var c = D.cats[key];
       caseHost.innerHTML = '';
       caseHost.appendChild(buildCase(key, item, i, total));
       caseBackCat.innerHTML = ''; caseBackCat.appendChild(bil(c.en, c.zh));
+      crumbCat.innerHTML = ''; crumbCat.appendChild(bil(c.en, c.zh));
+      crumbCur.textContent = item.title;
+      buildEnd(key, i, total);
       var folder = caseView.querySelector('.detail-folder');
       folder.style.setProperty('--paper', folderCS.paper);
       folder.style.setProperty('--ink', folderCS.ink);
       works.classList.add('case-open');
       caseView.setAttribute('aria-hidden', 'false');
       works.scrollTop = 0;
+      if (!noPush) {
+        var st = { w: 'case', k: key, i: i, d: 2 };
+        if (history.state && history.state.w === 'case') { try { history.replaceState(st, ''); } catch (e) {} } else pushState(st);
+      }
     }
+    /* end-of-project navigation: back to the folder, all works, next / previous */
+    function buildEnd(key, i, total) {
+      var c = D.cats[key], items = c.items;
+      caseEnd.innerHTML = '';
+      var row = el('div', 'ce-row');
+      var bk = el('button', 'case-back'); bk.type = 'button';
+      var ar = el('span', 'ar'); ar.setAttribute('aria-hidden', 'true'); ar.textContent = '\u2190'; bk.appendChild(ar);
+      var lbl = el('span', 'cb-l'); lbl.appendChild(bil('Back to', '\u8fd4\u56de')); lbl.appendChild(document.createTextNode('\u00a0'));
+      var cc = el('span', 'case-back-cat'); cc.appendChild(bil(c.en, c.zh)); lbl.appendChild(cc); bk.appendChild(lbl);
+      bk.addEventListener('click', backToToc); row.appendChild(bk);
+      var all = el('button', 'ce-all'); all.type = 'button'; all.appendChild(bil('All works', '\u6240\u6709\u4f5c\u54c1')); all.addEventListener('click', backToAll); row.appendChild(all);
+      caseEnd.appendChild(row);
+      function col(k_en, k_zh, it, idx, prev) {
+        var d = el('div');
+        var k = el('span', 'ce-k'); k.appendChild(bil(k_en + ' \u00b7 ' + ('0' + (idx + 1)).slice(-2) + ' / ' + ('0' + total).slice(-2), k_zh + ' \u00b7 ' + ('0' + (idx + 1)).slice(-2) + ' / ' + ('0' + total).slice(-2))); d.appendChild(k);
+        var b = el('button', 'ce-link' + (prev ? ' is-prev' : '')); b.type = 'button';
+        var a = el('span', 'arr'); a.setAttribute('aria-hidden', 'true'); a.textContent = prev ? '\u2190' : '\u2192';
+        if (prev) b.appendChild(a); b.appendChild(document.createTextNode(it.title)); if (!prev) b.appendChild(a);
+        b.addEventListener('click', function () { openCase(key, it, idx, total); });
+        d.appendChild(b);
+        var s = el('span', 'ce-sub'); s.appendChild(bil(it.tag_en, it.tag_zh)); d.appendChild(s);
+        return d;
+      }
+      if (items[i + 1]) caseEnd.appendChild(col('Next project', '\u4e0b\u4e00\u4e2a\u9879\u76ee', items[i + 1], i + 1, false));
+      if (items[i - 1]) caseEnd.appendChild(col('Previous project', '\u4e0a\u4e00\u4e2a\u9879\u76ee', items[i - 1], i - 1, true));
+    }
+    /* history: browser / phone Back returns to the folder, then to all works */
+    function pushState(st) { try { history.pushState(st, ''); } catch (e) {} }
+    function backToToc() { var s = history.state; if (s && s.w === 'case') history.back(); else closeCase(); }
+    function backToAll() { var s = history.state; if (s && s.w === 'case') history.go(-2); else if (s && s.w === 'toc') history.back(); else closeDetail(); }
+    window.addEventListener('popstate', function (e) {
+      var s = e.state;
+      if (!s || !s.w) { closeDetail(); return; }
+      var ci = D.order.indexOf(s.k); if (ci < 0) { closeDetail(); return; }
+      if (s.w === 'toc') { openDetail(cats[ci], true); return; }
+      var items = D.cats[s.k].items, it = items[s.i];
+      if (!it) { closeDetail(); return; }
+      openDetail(cats[ci], true); openCase(s.k, it, s.i, items.length, true);
+    });
+    try { if (history.state && history.state.w) history.replaceState(null, ''); } catch (e) {}
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (works.classList.contains('case-open')) backToToc();
+      else if (works.classList.contains('toc-open')) backToAll();
+    });
     function closeCase() {
       works.classList.remove('case-open');
       caseView.setAttribute('aria-hidden', 'true');
@@ -281,8 +340,11 @@
       });
     });
     stack.addEventListener('pointerleave', function () { if (hoverable) setActive(null); });
-    back.addEventListener('click', closeDetail);
-    caseBack.addEventListener('click', closeCase);
+    back.addEventListener('click', backToAll);
+    caseBack.addEventListener('click', backToToc);
+    caseClose.addEventListener('click', backToAll);
+    crumbWorks.addEventListener('click', backToAll);
+    crumbCat.addEventListener('click', backToToc);
     document.querySelectorAll('[data-go="2"]').forEach(function (a) { a.addEventListener('click', closeDetail); });
 
     window.WORKS = { open: function (k) { var i = D.order.indexOf(k); if (i >= 0) openDetail(cats[i]); }, close: closeDetail };

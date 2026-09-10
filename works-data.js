@@ -14,6 +14,27 @@ window.WORKS_DATA = {
       sub_en: 'Playable & interactive', sub_zh: '可玩 · 交互',
       items: [
         {
+          id: 'shatteredjade', title: 'Shattered Jade 碎玉',
+          tag_en: 'A UE5 exorcism rogue-lite on filial pressure & queer survival — my MA dissertation game',
+          tag_zh: '一款关于孝道压力与酷儿生存的 UE5 驱邪 Rogue-lite · 硕士论文作品',
+          cover: 'image', cover_src: 'assets/shatteredjade/lv45.jpg',
+          q_en: 'How does the process of making a rogue-lite game, including the mechanics I build and discard, allow me to explore what it means to turn the pressures of filial expectation and queer survival that I have lived into game systems?',
+          q_zh: '制作一款 rogue-lite 游戏的过程——包括我建立与放弃的那些机制——如何让我探索：把亲历的孝道期待与酷儿生存的压力转化为游戏系统，究竟意味着什么？',
+          meta: [
+            { k_en: 'Timeline', k_zh: '时间', v_en: 'Feb – Sep 2026', v_zh: '2026.02 – 09' },
+            { k_en: 'Course', k_zh: '课程', v_en: 'Dissertation (CCME0136) · MA Digital Media: Production · UCL IOE', v_zh: '硕士论文 CCME0136 · UCL 教育学院' },
+            { k_en: 'Type', k_zh: '类型', v_en: 'Practice-based dissertation · rogue-lite survival game', v_zh: '实践型论文 · Rogue-lite 生存游戏' },
+            { k_en: 'Role', k_zh: '角色', v_en: 'Solo: design · Blueprints · art · writing', v_zh: '独立完成：设计 · 蓝图 · 美术 · 写作' }
+          ],
+          tech: ['Unreal Engine 5', 'Blueprints · Gameplay Ability System', 'Niagara', 'Perforce'],
+          stack: [{ en: 'UE5' }, { en: 'Rogue-lite' }, { en: 'Dissertation', zh: '硕士论文' }],
+          overview_en: 'A survival game built in Unreal Engine 5 in which a Daoist priest survives waves of creatures that stand for social pressure, using paper talismans, and rebuilds himself from shards of jade. The dissertation analyses its making decision by decision: what an enemy is, what a weapon does, what death costs.',
+          overview_zh: '一款用 Unreal Engine 5 制作的生存游戏：一位道士以纸符抵御象征社会压力的一波波妖物，并从碎玉中重建自己。论文逐个决定地分析它的制作：敌人是什么、武器做什么、死亡付出什么。',
+          impl: [],
+          reflect_en: 'A game with no written plot is not a game without a story: it tells its story through what the player does and feels.',
+          reflect_zh: '没有书面剧情的游戏并不是没有故事的游戏：它借玩家所做与所感来讲述。'
+        },
+        {
           id: 'paranoid', title: "Paranoid's Dream",
           tag_en: 'A VR experiment on mental health & digital identity',
           tag_zh: '一场关于心理健康与数字身份的 VR 实验',
