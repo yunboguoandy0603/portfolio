@@ -35,10 +35,10 @@
       'style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" ' +
       'aria-label="Play the film">' +
       '<span class="lol-play" aria-hidden="true"></span>' +
-      '<button class="lol-edit" type="button" data-edit="main" title="Change link" aria-label="Change link">&#9998;</button>' +
+      (window.PF_EDIT ? '<button class="lol-edit" type="button" data-edit="main" title="Change link" aria-label="Change link">&#9998;</button>' : '') +
       '</button>';
   }
-  function emptyHTML() {
+  function emptyHTML() { if (!window.PF_EDIT) return '';
     return '<button class="lol-yt lol-empty" type="button" data-add="main">' +
       '<span class="lol-empty-k">&#9654;</span>' +
       '<span class="lol-empty-l"><span class="en">Add film link</span><span class="zh">\u70b9\u51fb\u6dfb\u52a0\u5f71\u7247\u94fe\u63a5</span></span></button>';
@@ -68,7 +68,7 @@
           dots() +
           '<div class="lol-sub"><span class="en">the day colour came back</span><span class="zh">\u8272\u5f69\u56de\u6765\u7684\u90a3\u4e00\u5929</span></div>' +
           '<p class="lol-tagline"><span class="en">A man walks through a cold, grey, watched city. He comes home, touches his dog \u2014 and colour floods back into his body and his world.</span><span class="zh">\u4e00\u4e2a\u4eba\u8d70\u8fc7\u51b0\u51b7\u3001\u7070\u8272\u3001\u88ab\u76d1\u89c6\u7684\u57ce\u5e02\u3002\u4ed6\u56de\u5230\u5bb6\uff0c\u629a\u6478\u4ed6\u7684\u72d7\u2014\u2014\u8272\u5f69\u4fbf\u91cd\u65b0\u6d8c\u56de\u4ed6\u7684\u8eab\u4f53\u4e0e\u4e16\u754c\u3002</span></p>' +
-          '<div class="lol-ded"><span class="lol-heart">\u2665</span><span class="en">For Xiaokui, my Chihuahua</span><span class="zh">\u81f4\u6211\u7684\u5409\u5a03\u5a03 \u00b7 \u5c0f\u5947</span></div>' +
+          '<div class="lol-ded"><span class="lol-heart">\u2665</span><span class="en">For my dog</span><span class="zh">\u81f4\u6211\u7684\u5c0f\u72d7</span></div>' +
           '<div class="lol-chips">' +
             '<span class="lol-chip">Maya</span><span class="lol-chip">Shader nodes</span>' +
             '<span class="lol-chip">Rigging</span><span class="lol-chip">Lighting</span><span class="lol-chip">Edit</span>' +
@@ -156,7 +156,7 @@
       var media = art.querySelector('[data-scene="main"] .lol-film-media');
       if (media) media.innerHTML = id ? facadeHTML(id) : emptyHTML();
     }
-    function editLink() {
+    function editLink() { if (!window.PF_EDIT) return;
       var media = art.querySelector('[data-scene="main"] .lol-film-media');
       if (!media) return;
       var cur = ''; try { cur = localStorage.getItem('lol-yt-main'); if (cur == null) cur = DEFAULT_YT; } catch (e) { cur = DEFAULT_YT; }
@@ -185,6 +185,7 @@
       var f = document.createElement('iframe');
       f.className = 'lol-yt';
       f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.title = 'Light of My Life';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

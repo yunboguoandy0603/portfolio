@@ -98,10 +98,10 @@
     return '<button class="hg-yt hg-facade" type="button" data-yt="' + id + '" ' +
       'style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" aria-label="Play Babel Refractions video">' +
       '<span class="hg-play" aria-hidden="true"></span>' +
-      '<button class="hg-edit" type="button" data-edit="1" title="Change link" aria-label="Change link">\u270e</button>' +
+      (window.PF_EDIT ? '<button class="hg-edit" type="button" data-edit="1" title="Change link" aria-label="Change link">\u270e</button>' : '') +
       '</button>';
   }
-  function emptyHTML() {
+  function emptyHTML() { if (!window.PF_EDIT) return '';
     return '<button class="hg-yt hg-empty" type="button" data-add="1">' +
       '<span class="hg-empty-k">\u25B6</span>' +
       '<span class="hg-empty-l"><span class="en">Add video link</span><span class="zh">点击添加视频链接</span></span></button>';
@@ -292,7 +292,7 @@
       var media = art.querySelector('.hg-feature-media');
       if (media) media.innerHTML = id ? facadeHTML(id) : emptyHTML();
     }
-    function editLink() {
+    function editLink() { if (!window.PF_EDIT) return;
       var media = art.querySelector('.hg-feature-media');
       if (!media) return;
       var cur = ''; try { var s = localStorage.getItem(VKEY); cur = (s === null ? YT_DEFAULT : s); } catch (e) { cur = YT_DEFAULT; }
@@ -324,6 +324,7 @@
       var f = document.createElement('iframe');
       f.className = 'hg-yt';
       f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.title = 'Babel Refractions';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

@@ -103,6 +103,7 @@
     ':host([data-over]) .ring{border-color:#c96442}' +
     ':host([data-over]) .empty{outline:2px solid #c96442;outline-offset:-2px}' +
     ':host([data-filled]) .empty,:host([data-filled]) .ring{display:none}' +
+    ':host(:not([data-editable])) .empty,:host(:not([data-editable])) .ring{display:none}' +
     // editor: add-link form
     '.form{position:absolute;inset:0;display:none;flex-direction:column;gap:8px;align-items:center;' +
     '  justify-content:center;padding:16px;box-sizing:border-box;background:rgba(255,255,255,.96);z-index:3}' +

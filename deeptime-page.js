@@ -70,13 +70,14 @@
       'style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" ' +
       'aria-label="Play AR memory — ' + sc.t_en + '">' +
       '<span class="dt-play" aria-hidden="true"></span>' +
-      '<button class="dt-edit" type="button" data-edit="' + sc.n + '" title="Change link" aria-label="Change link">✎</button>' +
+      (window.PF_EDIT ? '<button class="dt-edit" type="button" data-edit="' + sc.n + '" title="Change link" aria-label="Change link">✎</button>' : '') +
       '</button>';
   }
 
   function featureHTML() {
     var id = storedId(FEATURE);
     if (id) return facadeHTML(id, FEATURE);
+    if (!window.PF_EDIT) return '';
     return '<button class="dt-yt dt-empty dt-empty-feature" type="button" data-add="main">' +
       '<span class="dt-empty-k">▶</span>' +
       '<span class="dt-empty-l"><span class="en">Add full-screen video link</span><span class="zh">点击添加全屏视频链接</span></span></button>';
@@ -204,7 +205,7 @@
     });
     // in-page link management + click-to-play
     function findScene(n) { if (n === FEATURE.n) return FEATURE; for (var i = 0; i < SCENES.length; i++) if (SCENES[i].n === n) return SCENES[i]; return null; }
-    function emptyHTML(n) {
+    function emptyHTML(n) { if (!window.PF_EDIT) return '';
       return '<button class="dt-yt dt-empty" type="button" data-add="' + n + '"><span class="dt-empty-k">' + n + '</span><span class="dt-empty-l"><span class="en">Add video link</span><span class="zh">\u70b9\u51fb\u6dfb\u52a0\u89c6\u9891\u94fe\u63a5</span></span></button>';
     }
     function commit(n, raw) {
@@ -215,7 +216,7 @@
       if (media) media.innerHTML = id ? facadeHTML(id, sc) : emptyHTML(n);
     }
     // inline editor (window.prompt is blocked in sandboxed previews)
-    function editLink(n) {
+    function editLink(n) { if (!window.PF_EDIT) return;
       var media = art.querySelector('[data-scene="' + n + '"] .dt-scene-media');
       if (!media) return;
       var cur = ''; try { cur = localStorage.getItem('dt-yt-' + n) || ''; } catch (e) {}
@@ -248,6 +249,7 @@
       var f = document.createElement('iframe');
       f.className = 'dt-yt';
       f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.title = 'Deep Time AR memory';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

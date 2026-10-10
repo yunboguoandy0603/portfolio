@@ -36,10 +36,10 @@
       'style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" ' +
       'aria-label="Play the Paranoid\u2019s Dream walkthrough">' +
       '<span class="pd-play" aria-hidden="true"></span>' +
-      '<button class="pd-edit" type="button" data-edit="main" title="Change link" aria-label="Change link">&#9998;</button>' +
+      (window.PF_EDIT ? '<button class="pd-edit" type="button" data-edit="main" title="Change link" aria-label="Change link">&#9998;</button>' : '') +
       '</button>';
   }
-  function emptyHTML() {
+  function emptyHTML() { if (!window.PF_EDIT) return '';
     return '<button class="pd-yt pd-empty" type="button" data-add="main">' +
       '<span class="pd-empty-k">&#9654;</span>' +
       '<span class="pd-empty-l"><span class="en">Add walkthrough link</span><span class="zh">\u70b9\u51fb\u6dfb\u52a0\u89c6\u9891\u94fe\u63a5</span></span></button>';
@@ -200,7 +200,7 @@
       var media = art.querySelector('[data-scene="main"] .pd-film-media');
       if (media) media.innerHTML = id ? facadeHTML(id) : emptyHTML();
     }
-    function editLink() {
+    function editLink() { if (!window.PF_EDIT) return;
       var media = art.querySelector('[data-scene="main"] .pd-film-media');
       if (!media) return;
       var cur = ''; try { cur = localStorage.getItem('pd-yt-main'); if (cur == null) cur = DEFAULT_YT; } catch (e) { cur = DEFAULT_YT; }
@@ -229,6 +229,7 @@
       var f = document.createElement('iframe');
       f.className = 'pd-yt';
       f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.title = 'Paranoid\u2019s Dream walkthrough';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

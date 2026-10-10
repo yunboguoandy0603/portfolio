@@ -21,6 +21,7 @@
       shatteredjade: 202606, pressx: 202512, fiveelements: 202510, hyperglimpse: 202501
     };
     Object.keys(D.cats).forEach(function (k) {
+      if (D.cats[k].fixed) return; // curated order (VR / AR)
       D.cats[k].items.sort(function (a, b) { return (ITEM_DATE[b.id] || 0) - (ITEM_DATE[a.id] || 0); });
     });
 
@@ -187,7 +188,7 @@
     }
     function coverSlot(key, item) {
       var s = document.createElement('image-slot');
-      s.id = 'toc-' + key + '-' + item.id;
+      s.id = 'toc-' + (item.home || key) + '-' + item.id;
       s.setAttribute('shape', 'rect');
       s.setAttribute('placeholder', 'Cover / \u5c01\u9762');
       if (item.cover_src) s.setAttribute('src', item.cover_src);
@@ -208,6 +209,7 @@
       if (item.kind === 'research') { var bd = el('span', 'toc-badge'); bd.appendChild(bil(item.wip ? 'Research \u00b7 WIP' : 'Research', item.wip ? '\u7814\u7a76 \u00b7 \u8fdb\u884c\u4e2d' : '\u7814\u7a76')); tag.appendChild(bd); }
       var sub = el('span'); sub.appendChild(bil(item.tag_en, item.tag_zh)); tag.appendChild(sub);
       body.appendChild(tag);
+      if (item.explores_en) body.appendChild(bilInto('p', 'toc-explores', item.explores_en, item.explores_zh));
       if (item.stack && item.stack.length) {
         var st = el('div', 'toc-stack');
         item.stack.forEach(function (s) { var chip = el('span', 'ts'); chip.appendChild(bil(s.en, s.zh)); st.appendChild(chip); });

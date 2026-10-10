@@ -7,7 +7,7 @@
    media: 'image' uses <image-slot> (drag-fillable); 'video' uses a video slot.
    ========================================================================== */
 window.WORKS_DATA = {
-  order: ['games', 'models', 'experiments', 'papers'],
+  order: ['games', 'xr', 'models', 'experiments', 'papers'],
   cats: {
     games: {
       num: '01', en: 'Interaction / Games', zh: '交互 / 游戏',
@@ -17,6 +17,8 @@ window.WORKS_DATA = {
           id: 'shatteredjade', title: 'Shattered Jade 碎玉',
           tag_en: 'A UE5 exorcism rogue-lite on filial pressure & queer survival — my MA dissertation game',
           tag_zh: '一款关于孝道压力与酷儿生存的 UE5 驱邪 Rogue-lite · 硕士论文作品',
+          explores_en: 'Explores how the pressure on a gay son in a Chinese family can be built into rules: enemies are forms of pressure, words are the only weapons, and the core action is dispelling, not killing. Solo build, UE5, Feb–Sep 2026. Not yet playtested.',
+          explores_zh: '探索家庭对一个同性恋儿子的压力如何被写进规则：敌人即压力，语言是唯一武器，核心动作是“驱煞”而非杀戮。独立完成，UE5，2026 年 2–9 月。尚未经他人试玩。',
           cover: 'image', cover_src: 'assets/shatteredjade/lv45.jpg',
           q_en: 'How does the process of making a rogue-lite game, including the mechanics I build and discard, allow me to explore what it means to turn the pressures of filial expectation and queer survival that I have lived into game systems?',
           q_zh: '制作一款 rogue-lite 游戏的过程——包括我建立与放弃的那些机制——如何让我探索：把亲历的孝道期待与酷儿生存的压力转化为游戏系统，究竟意味着什么？',
@@ -28,8 +30,8 @@ window.WORKS_DATA = {
           ],
           tech: ['Unreal Engine 5', 'Blueprints · Gameplay Ability System', 'Niagara', 'Perforce'],
           stack: [{ en: 'UE5' }, { en: 'Rogue-lite' }, { en: 'Dissertation', zh: '硕士论文' }],
-          overview_en: 'A survival game built in Unreal Engine 5 in which a Daoist priest survives waves of creatures that stand for social pressure, using paper talismans, and rebuilds himself from shards of jade. The dissertation analyses its making decision by decision: what an enemy is, what a weapon does, what death costs.',
-          overview_zh: '一款用 Unreal Engine 5 制作的生存游戏：一位道士以纸符抵御象征社会压力的一波波妖物，并从碎玉中重建自己。论文逐个决定地分析它的制作：敌人是什么、武器做什么、死亡付出什么。',
+          overview_en: 'A survival game built in Unreal Engine 5 in which a Daoist priest survives waves of creatures that stand for family pressure, using paper talismans, and rebuilds himself from shards of jade. The dissertation analyses its making decision by decision: what an enemy is, what a weapon does, what death costs.',
+          overview_zh: '一款用 Unreal Engine 5 制作的生存游戏：一位道士以纸符抵御象征家庭压力的一波波妖物，并从碎玉中重建自己。论文逐个决定地分析它的制作：敌人是什么、武器做什么、死亡付出什么。',
           impl: [],
           reflect_en: 'A game with no written plot is not a game without a story: it tells its story through what the player does and feels.',
           reflect_zh: '没有书面剧情的游戏并不是没有故事的游戏：它借玩家所做与所感来讲述。'
@@ -38,6 +40,8 @@ window.WORKS_DATA = {
           id: 'paranoid', title: "Paranoid's Dream",
           tag_en: 'A VR experiment on mental health & digital identity',
           tag_zh: '一场关于心理健康与数字身份的 VR 实验',
+          explores_en: 'Explores whether paranoia can be inhabited rather than shown: gaze-based interaction, shifting textures and a looping space the player cannot leave. UE5 VR, 2023. Informally tested with 22 people.',
+          explores_zh: '探索偏执能否被“住进去”而不只是被展示：凝视交互、变色材质、走不出去的循环空间。UE5 VR，2023。非正式测试 22 人。',
           cover: 'video',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Feb – Jun 2023', v_zh: '2023.02 – 06' },
@@ -67,6 +71,8 @@ window.WORKS_DATA = {
           id: 'space', title: 'Space of Another Reality: Time & Order',
           tag_en: 'A virtual exhibition game on space & scale — published on Steam',
           tag_zh: '关于空间与尺度的虚拟展览游戏 · 已上架 Steam',
+          explores_en: 'Explores scale and social rules inside a first-person virtual museum; my section stages giant statues after the Leshan Buddha. Unreal, 2022.',
+          explores_zh: '在第一人称虚拟展览里探索尺度与社会规则；我负责的“时间与秩序”章节以乐山大佛为原型。Unreal，2022。',
           cover: 'video',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Jun – Aug 2022', v_zh: '2022.06 – 08' },
@@ -96,6 +102,8 @@ window.WORKS_DATA = {
           id: 'primal', title: 'Primal Hunting',
           tag_en: 'A VR + EMG game on rehabilitation & industrial alienation',
           tag_zh: '结合 VR 与肌电（EMG）的康复 / 工业异化游戏',
+          explores_en: 'Explores muscle signals as a game input: EMG sensors set how far the bow draws and how hard the arrow flies, so effort itself is the mechanic. Designed as a rehabilitation exercise. UE5 VR + EMG, 2024.',
+          explores_zh: '探索肌电作为游戏输入：EMG 传感器决定拉弓幅度与箭的力度，“用力”本身成为机制。按康复练习设计。UE5 VR + EMG，2024。',
           cover: 'video',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Apr – Jun 2024', v_zh: '2024.04 – 06' },
@@ -105,8 +113,8 @@ window.WORKS_DATA = {
           ],
           tech: ['Unreal Engine 5', 'VR · Physics', 'Electromyography (EMG)'],
           stack: [{ en: 'VR' }, { en: 'EMG', zh: '肌电 EMG' }, { en: 'UE5' }],
-          overview_en: 'A VR archery game wired to EMG sensors that read real muscle signals. For players it\'s immersive; for users in rehab it\'s a therapeutic tool — wrapped in a narrative, after Chaplin\'s Modern Times, where nature curdles into a "steel jungle."',
-          overview_zh: '一款接入 EMG 肌电传感器、读取真实肌肉信号的 VR 射箭游戏。对玩家是沉浸体验，对康复使用者是治疗工具；外层包裹着一个致敬卓别林《摩登时代》的叙事——自然逐渐变成"钢铁丛林"。',
+          overview_en: 'A VR archery game wired to EMG sensors that read real muscle signals. For players it\'s immersive, and it is designed as a rehabilitation exercise — wrapped in a narrative, after Chaplin\'s Modern Times, where nature curdles into a "steel jungle."',
+          overview_zh: '一款接入 EMG 肌电传感器、读取真实肌肉信号的 VR 射箭游戏。对玩家是沉浸体验，同时按康复练习设计；外层包裹着一个致敬卓别林《摩登时代》的叙事——自然逐渐变成"钢铁丛林"。',
           impl: [
             { h_en: 'EMG + VR integration', h_zh: '肌电与 VR 融合', media: 'video',
               b_en: 'Drawing the bow is driven by actual muscle strength read from EMG, translated into arrow power — precise motor feedback that doubles as rehab exercise.',
@@ -125,6 +133,8 @@ window.WORKS_DATA = {
           id: 'yinyang', title: 'Yin-Yang The Moon 阴阳月',
           tag_en: 'A Unity 2D narrative platformer on myth & modern burnout',
           tag_zh: '关于神话与现代倦怠的 Unity 2D 叙事平台跳跃',
+          explores_en: 'Explores the Yellow Spring Road myth as a figure for overwork and burnout, drawn in ink wash. Unity 2D, C#, 2023.',
+          explores_zh: '以黄泉路传说比喻过劳与倦怠，水墨风格。Unity 2D，C#，2023。',
           cover: 'image',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Aug – Nov 2023', v_zh: '2023.08 – 11' },
@@ -154,6 +164,8 @@ window.WORKS_DATA = {
           id: 'babel', title: 'Babel Refractions',
           tag_en: 'A VR journey through modern alienation — my Final Year Project',
           tag_zh: '穿越现代异化的 VR 旅程 · 本科毕业设计',
+          explores_en: 'Explores how modern pressure can be felt rather than explained: four VR worlds of rules, slogans, industry and goals. UE5 VR, 2025 (final-year project). User-tested with 18 people on Quest 2 and Vive Pro, about 15 minutes each.',
+          explores_zh: '探索现代压力如何被“感到”而非被解释：规则、口号、工业、目标四个 VR 世界。UE5 VR，2025（本科毕设）。18 人用户测试，Quest 2 与 Vive Pro，每人约 15 分钟。',
           cover: 'video',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Jan – May 2025', v_zh: '2025.01 – 05' },
@@ -183,13 +195,15 @@ window.WORKS_DATA = {
           id: 'onemorestep', title: 'One More Step',
           tag_en: 'Six days, six broken rules — a Sokoban about the student commute',
           tag_zh: '六天 · 六次被打破的规则——一款关于上学路的推箱子',
+          explores_en: 'Explores the invisible labour of the student commute: six Sokoban levels, each breaking one rule you had just learned. GDevelop, 2026, with Emily Ng (pixel art). Playable in the browser.',
+          explores_zh: '探索上学路上看不见的劳动：六关推箱子，每一关打破一条你刚学会的规则。GDevelop，2026，与 Emily Ng 合作（像素美术）。可在浏览器里玩。',
           cover: 'image', cover_src: 'assets/onemorestep/cover-title.png',
           play: 'https://gd.games/games/2dbfb067-c19f-4d82-a0d3-dc8213fa4907',
           play_label_en: 'Play in browser', play_label_zh: '在线试玩',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Jan – Mar 2026', v_zh: '2026.01 – 03' },
             { k_en: 'Course', k_zh: '课程', v_en: 'CCME0130 Digital Game Design · UCL IOE', v_zh: 'CCME0130 数字游戏设计 · UCL IOE' },
-            { k_en: 'Team', k_zh: '团队', v_en: 'Yunbo Guo · Emily Ng', v_zh: '郭昀波 · Emily Ng' },
+            { k_en: 'Team', k_zh: '团队', v_en: 'Yunbo Guo · Emily Ng', v_zh: '郭云波 · Emily Ng' },
             { k_en: 'My role', k_zh: '我的角色', v_en: 'Game design · all GDevelop programming · level design', v_zh: '游戏设计 · 全部 GDevelop 编程 · 关卡设计' }
           ],
           tech: ['GDevelop (2D)', 'Piskel (pixel art)', 'Custom grid movement', 'Procedural rhetoric · Abusive design'],
@@ -222,14 +236,23 @@ window.WORKS_DATA = {
       ]
     },
 
+    xr: {
+      num: '02', en: 'VR / AR', zh: 'VR / AR',
+      sub_en: 'VR · AR · EMG', sub_zh: 'VR · AR · EMG',
+      fixed: true, refs: ['primal', 'babel', 'paranoid', 'deeptime'],
+      items: []
+    },
+
     models: {
-      num: '02', en: '3D works', zh: '三维',
+      num: '03', en: '3D works', zh: '三维',
       sub_en: '3D & environment art', sub_zh: '三维 · 环境美术',
       items: [
         {
           id: 'lightofmylife', title: 'Light of My Life',
           tag_en: 'A 3D animated short — colour returning to a grey world, for my dog',
           tag_zh: '一部三维动画短片——让灰色世界重获色彩，献给我的小狗',
+          explores_en: 'Explores colour as memory: a man in a grey, watched city regains colour each time he touches his dog. 3D animated short, Maya, 2026. For my dog.',
+          explores_zh: '探索颜色作为记忆：灰色、被监视的城市里，一个人每次触碰他的狗，颜色就回来一点。三维动画短片，Maya，2026。献给我的小狗。',
           cover: 'video',
           play: 'https://youtu.be/pkTJHfpc-wk',
           play_label_en: 'Watch on YouTube', play_label_zh: '在 YouTube 观看',
@@ -252,6 +275,8 @@ window.WORKS_DATA = {
           id: 'dragongate', title: 'The Dragon Gate Inn',
           tag_en: 'A 3D environmental-storytelling piece on Wuxia & Fengshui',
           tag_zh: '关于武侠文化与风水的三维环境叙事',
+          explores_en: 'Explores environmental storytelling from the northwest: a desert inn that hides its secrets in props, light and fengshui. Maya, Substance, UE5, 2023.',
+          explores_zh: '探索来自西北的环境叙事：一座把秘密藏在道具、光线与风水里的沙漠客栈。Maya、Substance、UE5，2023。',
           cover: 'video',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Feb – Jun 2023', v_zh: '2023.02 – 06' },
@@ -280,13 +305,15 @@ window.WORKS_DATA = {
     },
 
     experiments: {
-      num: '03', en: 'experiments', zh: '实验',
+      num: '04', en: 'experiments', zh: '实验',
       sub_en: 'AI, AR & generative', sub_zh: 'AI · AR · 生成',
       items: [
         {
           id: 'deeptime', title: 'Deep Time',
           tag_en: 'A mixed-media AR installation on memory & the Proust Effect',
           tag_zh: '关于记忆与"普鲁斯特效应"的混合媒介 AR 装置',
+          explores_en: 'Explores the Proust effect: real scents trigger memories that become a walk-in space. Mixed-media AR installation, 12.95 × 11.74 × 4 m, three projectors, nine gauze screens; AR via ARTIVIVE. UE5, Cinema 4D, 2023.',
+          explores_zh: '探索普鲁斯特效应：真实气味唤起的记忆变成可走入的空间。混合媒介 AR 装置，12.95 × 11.74 × 4 米，三台投影，九层纱幕；AR 由 ARTIVIVE 触发。UE5、Cinema 4D，2023。',
           cover: 'video',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Feb 2023', v_zh: '2023.02' },
@@ -316,6 +343,8 @@ window.WORKS_DATA = {
           id: 'rain', title: 'RAIN',
           tag_en: 'A generative-art project on social gender & fluid identity',
           tag_zh: '关于社会性别与流动身份的生成艺术',
+          explores_en: 'Explores gender as something fluid: every drop has its own speed and rhythm, and falls into coloured letters. Generative art, Processing, 2024.',
+          explores_zh: '探索性别的流动：每一滴雨有自己的速度与节奏，落下时化为彩色字母。生成艺术，Processing，2024。',
           cover: 'image', cover_src: 'assets/rain/cover.png',
           meta: [
             { k_en: 'Timeline', k_zh: '时间', v_en: 'Jan – Mar 2024', v_zh: '2024.01 – 03' },
@@ -342,12 +371,22 @@ window.WORKS_DATA = {
     },
 
     papers: {
-      num: '04', en: 'papers', zh: '论文',
+      num: '05', en: 'papers', zh: '论文',
       sub_en: 'Research & cross-media', sub_zh: '研究 · 跨媒介',
       items: []
     }
   }
 };
+/* VR / AR is a cross-cutting section: its four works stay in their home sections (counts unchanged)
+   and are listed here too, in a fixed order. `home` keeps each card's cover image key stable. */
+(function () {
+  var D = window.WORKS_DATA, byId = {};
+  Object.keys(D.cats).forEach(function (k) {
+    if (k === 'xr') return;
+    D.cats[k].items.forEach(function (it) { it.home = k; byId[it.id] = it; });
+  });
+  D.cats.xr.items = D.cats.xr.refs.map(function (id) { return byId[id]; }).filter(Boolean);
+})();
 /* ===== papers items archived — restore when ready =====
         {
           id: 'hyperglimpse', title: 'Hyper Glimpse: Babel Refractions Catalogue',
@@ -431,15 +470,15 @@ window.WORKS_DATA = {
         },
         {
           id: 'shatteredjade', title: 'Shattered Jade', kind: 'research', wip: true,
-          tag_en: 'Proceduralizing the closet through rogue-lite mechanics — current dissertation',
+          tag_en: 'Mechanics of the closet through rogue-lite mechanics — current dissertation',
           tag_zh: '用 rogue-lite 机制将"隐匿/出柜"程序化 · 进行中的硕士论文',
           cover: 'video',
-          q_en: 'How can rogue-lite mechanics proceduralise filial expectation, concealment and queer survival in a Sinophone / Wuxia-inspired game prototype?',
+          q_en: 'How can rogue-lite mechanics proceduralise filial expectation, concealment and queer survival in a Sinophone game prototype?',
           q_zh: 'rogue-lite 机制如何将孝道期待、隐匿与酷儿生存，在一个华语 / 武侠语境的游戏原型中程序化？',
           meta: [
             { k_en: 'Status', k_zh: '状态', v_en: 'In progress · framework + prototype', v_zh: '进行中 · 框架与原型' },
             { k_en: 'Type', k_zh: '类型', v_en: 'Practice-based dissertation', v_zh: '实践型硕士论文' },
-            { k_en: 'Form', k_zh: '形态', v_en: 'Wuxia-inspired, Vampire-Survivors-like', v_zh: '武侠题材 · 类《吸血鬼幸存者》' }
+            { k_en: 'Form', k_zh: '形态', v_en: 'Vampire-Survivors-like', v_zh: '武侠题材 · 类《吸血鬼幸存者》' }
           ],
           tech: ['Practice-based game prototype', 'Reflective practice · Autoethnography', 'Rule-based feedback'],
           stack: [{ en: 'Prototype', zh: '原型' }, { en: 'Rogue-lite' }],

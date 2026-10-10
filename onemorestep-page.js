@@ -29,10 +29,10 @@
     return '<button class="oms-yt oms-facade" type="button" data-yt="' + id + '" ' +
       'style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" aria-label="Play video">' +
       '<span class="oms-play" aria-hidden="true"></span>' +
-      '<button class="oms-edit" type="button" data-edit="1" title="Change link" aria-label="Change link">\u270e</button>' +
+      (window.PF_EDIT ? '<button class="oms-edit" type="button" data-edit="1" title="Change link" aria-label="Change link">\u270e</button>' : '') +
       '</button>';
   }
-  function emptyHTML() {
+  function emptyHTML() { if (!window.PF_EDIT) return '';
     return '<button class="oms-yt oms-empty" type="button" data-add="1">' +
       '<span class="oms-empty-k">\u25B6</span>' +
       '<span class="oms-empty-l"><span class="en">Add full-screen video link</span><span class="zh">\u70b9\u51fb\u6dfb\u52a0\u5168\u5c4f\u89c6\u9891\u94fe\u63a5</span></span></button>';
@@ -124,7 +124,7 @@
             '<h1 class="oms-title">ONE<br/>MORE<br/>STEP</h1>' +
             '<p class="oms-tagline"><span class="en">Six days, six broken rules. Push a tired student\u2019s ID card all the way to school \u2014 and feel the invisible labour of the daily commute through the controls in your hands.</span><span class="zh">六天，六次被打破的规则。把一名疲惫学生的学生证一路推去上学——让通勤里那些看不见的情绪劳动，从你手中的操作里被真切感到。</span></p>' +
             '<div class="oms-meta">' +
-              '<span><b class="en">Yunbo Guo · Emily Ng</b><b class="zh">郭昀波 · Emily Ng</b><i class="en">Team</i><i class="zh">团队</i></span>' +
+              '<span><b class="en">Yunbo Guo · Emily Ng</b><b class="zh">郭云波 · Emily Ng</b><i class="en">Team</i><i class="zh">团队</i></span>' +
               '<span><b class="en">Design · all programming · levels</b><b class="zh">设计 · 全部编程 · 关卡</b><i class="en">My role</i><i class="zh">我的角色</i></span>' +
               '<span><b>GDevelop · Piskel</b><i class="en">Built with</i><i class="zh">工具</i></span>' +
             '</div>' +
@@ -266,7 +266,7 @@
       var media = art.querySelector('.oms-feature-media');
       if (media) media.innerHTML = id ? facadeHTML(id) : emptyHTML();
     }
-    function editLink() {
+    function editLink() { if (!window.PF_EDIT) return;
       var media = art.querySelector('.oms-feature-media');
       if (!media) return;
       var cur = ''; try { cur = localStorage.getItem(VKEY) || ''; } catch (e) {}
@@ -298,6 +298,7 @@
       var f = document.createElement('iframe');
       f.className = 'oms-yt';
       f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.title = 'One More Step \u2014 video';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');

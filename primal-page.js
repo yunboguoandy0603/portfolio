@@ -38,10 +38,10 @@
       'style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" ' +
       'aria-label="Play Primal Hunting gameplay">' +
       '<span class="pr-play" aria-hidden="true"></span>' +
-      '<button class="pr-edit" type="button" data-edit="main" title="Change link" aria-label="Change link">&#9998;</button>' +
+      (window.PF_EDIT ? '<button class="pr-edit" type="button" data-edit="main" title="Change link" aria-label="Change link">&#9998;</button>' : '') +
       '</button>';
   }
-  function emptyHTML() {
+  function emptyHTML() { if (!window.PF_EDIT) return '';
     return '<button class="pr-yt pr-empty" type="button" data-add="main">' +
       '<span class="pr-empty-k">&#9654;</span>' +
       '<span class="pr-empty-l"><span class="en">Add gameplay video</span><span class="zh">\u70b9\u51fb\u6dfb\u52a0\u89c6\u9891</span></span></button>';
@@ -391,7 +391,7 @@
       var media = art.querySelector('[data-scene="main"] .pr-scene-media');
       if (media) media.innerHTML = id ? facadeHTML(id) : emptyHTML();
     }
-    function editLink() {
+    function editLink() { if (!window.PF_EDIT) return;
       var media = art.querySelector('[data-scene="main"] .pr-scene-media');
       if (!media) return;
       var cur = ''; try { cur = localStorage.getItem('pr-yt-main'); if (cur == null) cur = DEFAULT_YT; } catch (e) { cur = DEFAULT_YT; }
@@ -421,6 +421,7 @@
       var f = document.createElement('iframe');
       f.className = 'pr-yt';
       f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       f.title = 'Primal Hunting gameplay';
       f.setAttribute('frameborder', '0');
       f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
