@@ -129,7 +129,7 @@
         '<div class="lol-foot-card">' +
           '<span class="lol-heart lol-heart-big">\u2665</span>' +
           '<p class="lol-foot-line"><span class="en">The most personal thing I\u2019ve made. It showed me animation can hold grief and love at the same time.</span><span class="zh">\u6211\u505a\u8fc7\u6700\u79c1\u4eba\u7684\u4e00\u4ef6\u4f5c\u54c1\u3002\u5b83\u8ba9\u6211\u770b\u89c1\uff0c\u52a8\u753b\u53ef\u4ee5\u540c\u65f6\u76db\u653e\u60b2\u4f24\u4e0e\u7231\u3002</span></p>' +
-          '<div class="lol-foot-sign"><span class="en">For Xiaokui</span><span class="zh">\u81f4\u5c0f\u5947</span></div>' +
+          '<div class="lol-foot-sign"><span class="en">For my dog</span><span class="zh">\u81f4\u6211\u7684\u5c0f\u72d7</span></div>' +
         '</div>' +
       '</footer>' +
 

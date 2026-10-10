@@ -261,7 +261,7 @@ window.WORKS_DATA = {
             { k_en: 'Type', k_zh: '类型', v_en: 'Individual 3D animated short', v_zh: '个人 · 三维动画短片' },
             { k_en: 'Tools', k_zh: '工具', v_en: 'Autodesk Maya · shader nodes · editing', v_zh: 'Autodesk Maya · 着色器节点 · 剪辑' },
             { k_en: 'My role', k_zh: '我的角色', v_en: 'Story · Modeling · Rigging · Animation · Lighting · Edit', v_zh: '故事 · 建模 · 绑定 · 动画 · 灯光 · 剪辑' },
-            { k_en: 'For', k_zh: '献给', v_en: 'Xiaokui, my Chihuahua', v_zh: '我的吉娃娃 · 小奎' }
+            { k_en: 'For', k_zh: '献给', v_en: 'My dog', v_zh: '我的小狗' }
           ],
           tech: ['Autodesk Maya', 'Shader-node colour systems', 'Rigging · skin weights', 'Lighting & rendering', 'Edit & sound mix'],
           stack: [{ en: 'Maya' }, { en: '3D Animation', zh: '三维动画' }, { en: 'Shaders', zh: '着色器' }],
